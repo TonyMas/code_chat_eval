@@ -1,3 +1,9 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+
 # Evaluation Framework for Chat-Based Code Assistant LLMs
 
 Natural language chat is one of the primary use cases for code assistants like GitHub Copilot or Amazon Q Developer. Users ask questions, the assistant provides answers and code snippets, and the conversation continues with clarifications and additional questions.
@@ -147,3 +153,16 @@ GEMINI_API_KEY # Your Gemini AI account key
 AIMLAPI_KEY # Your AIMLAPI account key (if you want to use models hosted on aimlapi.com)
 ```
 The project uses dotenv, so you can set these variables in a .env file.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/TonyMas/code_chat_eval.svg?style=for-the-badge
+[contributors-url]: https://github.com/TonyMas/code_chat_eval/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/TonyMas/code_chat_eval.svg?style=for-the-badge
+[forks-url]: https://github.com/TonyMas/code_chat_eval/network/members
+[stars-shield]: https://img.shields.io/github/stars/TonyMas/code_chat_eval.svg?style=for-the-badge
+[stars-url]: https://github.com/TonyMas/code_chat_eval/stargazers
+[issues-shield]: https://img.shields.io/github/issues/TonyMas/code_chat_eval.svg?style=for-the-badge
+[issues-url]: https://github.com/TonyMas/code_chat_eval/issues
+[license-shield]: https://img.shields.io/github/license/TonyMas/code_chat_eval.svg?style=for-the-badge
+[license-url]: https://github.com/TonyMas/code_chat_eval/blob/master/LICENSE
