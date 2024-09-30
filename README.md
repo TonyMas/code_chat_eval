@@ -116,3 +116,29 @@ Another area to explore is actually splitting evaluation process into several st
 The general framework should be easily applicable for evaluation of other use cases. For example dataset can be created from an open issues of an open source repositories and we can evaluate a code assistant ability to solve specific issues in code.
 
 Other most probable extension will be to add code testing to the evaluation step, to not only trust evaluator model but to actually check that code portin of the answer is correct and executable. 
+
+## Usage
+
+Framework should be installed as a local Python package to work correctly, after that you can call run_evaluation.py file from repository to get an evaluation for a given model.
+ 
+``` zsh
+pip install -e .
+
+python -m mt_chat_code_eval.run_evaluation --model gpt-4o-mini --evaluators gpt-4o-2024-08-06 --max_steps 5
+```
+
+Result of evaluation will be in [evaluation_results](evaluation_results) folder.
+
+Model and evaluator names should be valid keys defined in [src/mt_chat_code_eval/llm_fabric.py](src/mt_chat_code_eval/llm_fabric.py) file.
+
+In order for the framework to work following environment variables should be set:
+``` Python
+OPENAI_API_KEY # Key for your account on Open AI API
+OPENAI_API_ORG # Your org ID on Open AI API
+OPENAI_API_PROJECT # Your project ID on Open AI API
+GEMINI_API_KEY # Key to your Gemini AI account
+AIMLAPI_KEY # Key to your AIMLAPI account (if you want to use models hosted on aimlapi.com)
+
+# If you want to download the data by yourself, then you will need credentials for Google BigQuery as well
+```
+THe project is using dotenv, so setting up variables in a local .env file should be enough.
