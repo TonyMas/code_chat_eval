@@ -90,9 +90,16 @@ Several example conversations are included in the [examples](examples) directory
 
 ## Evaluation results
 
-Due to a limited resources of this POC only handful of models were evaluated.
+Due to a limited resources of this POC only handful of models were evaluated, just to show framework capabilities.
 
-All evaluation results can be found in evaluation_results folder.
+|                             | Completed tasks | Average turns in completed tasks |
+| --------------------------- | --------------- | ----------------------- |
+| gpt-4o-mini                 | 100.00%         | 1.1                     |
+| gemini-1.5-flash            | 97.50%          | 1.26                    |
+| Llama-3.1-8B-Instruct-Turbo | 81.00%          | 2.05                    |
+| CodeLlama-34b-Instruct      | 59.00%          | 2.08                    |
+
+All evaluation results can be found in [evaluation_results](evaluation_results) folder.
 
 ## Future Work and Improvements
 
