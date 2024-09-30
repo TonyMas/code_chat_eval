@@ -19,7 +19,15 @@ Idea that for an individual evaluation we start with a question that we ask eval
 
 Of course instead of one evaluator we can use several ones and combine their output together.
 
-With this approach what we will need for evaluation is a set of predefined questions and one or several powerful evaluator LLMs.
+![plot](images/framework.svg)
+
+### Pros and cons
+
+- ++ All we need to run evaluation in this scenario is a set of predefined questions and one or several evaluator models. We don't need to generate any gold answers.
+- ++ Framework will test fully multi-turn chat scenario where all the intermediate answers are produced by evaluated model itself and are not taken from predefined dataset.
+- ++ Framework is easily exetnsible to different code assistant chat scenarios - be it general questions or repo specific questions or code explanations.
+- -- All use cases require very careful picking of evaluator models together with extensive prompting. Even in a simple case in this POC most of the work went into prompt engineering and defining good evaluation criteria.
+- -- Proposed framework at least in its current form does not evaluate directly correctness of source code produced by evaluated model. This is something that potentially can be added to the framework for specific use cases, but it will require additional considerations.
 
 ## Implementation details
 
@@ -40,6 +48,10 @@ Evaluators are carefully prompted LLMs that we ask to evaluate code assistant an
 - Completeness - is proposed solution full and complete or are there anything that need to be added to the assistant's answer?
 
 Evaluator is also prompted to provide a follow-up question to code assistant in case it needed.
+
+Experiments shown that at least for current scenario (answering SO questions) best prompting is to ask evaluator to assume a senior engineering mentor persona who is mentoring an intern in his team.
+
+All evaluator prompts can be found in [prompt_files](src/mt_chat_code_eval/prompt_files) folder.
 
 ### Evaluating evaluators
 
@@ -67,10 +79,10 @@ All validations results can be found in validation_results folder.
 
 Some example chats can be found in examples folder:
 
-- examples/incomplete-answer.txt - example of a chat where model provided incomplete and truncated answer (probably due to model restriction) and evaluator noticed both of the problems and asked to correct them both.
-- examples/evaluator-assessment.txt - example of a evaluator assessment of a complete conversation from the previous example.
-- examples/one-step-conversation.txt - example of a conversation completed in one step where code assistant model produced correct result straight away
-- examples/wrong-language.txt - example where code assistant start answering a question in wrong programming language (because language was nt mentioned in the original question) but evaluator noticed that (because evaluator is prompted that conversations should be about Python)
+- [examples/incomplete-answer.txt](examples/incomplete-answer.txt) - example of a chat where model provided incomplete and truncated answer (probably due to model restriction) and evaluator noticed both of the problems and asked to correct them both.
+- [examples/evaluator-assessment.txt](examples/evaluator-assessment.txt) - example of a evaluator assessment of a complete conversation from the previous example.
+- [examples/one-step-conversation.txt](examples/one-step-conversation.txt) - example of a conversation completed in one step where code assistant model produced correct result straight away
+- [examples/wrong-language.txt](examples/one-step-conversation.txt) - example where code assistant start answering a question in wrong programming language (because language was nt mentioned in the original question) but evaluator noticed that (because evaluator is prompted that conversations should be about Python)
 
 ## Evaluation results
 
