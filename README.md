@@ -79,8 +79,10 @@ All validations results can be found in validation_results folder.
 
 Some example chats can be found in examples folder:
 
+- [examples/misunderstood-question.txt](examples/misunderstood-question.txt) - example of a chat where model misunderstood the question and was not able to answer correctly in 5 steps.
+- [examples/misunderstood-evaluation.txt](examples/misunderstood-evaluation.txt) - example of a evaluator assessment of a complete conversation from the previous example.
 - [examples/incomplete-answer.txt](examples/incomplete-answer.txt) - example of a chat where model provided incomplete and truncated answer (probably due to model restriction) and evaluator noticed both of the problems and asked to correct them both.
-- [examples/evaluator-assessment.txt](examples/evaluator-assessment.txt) - example of a evaluator assessment of a complete conversation from the previous example.
+- [examples/incomplete-evaluation.txt](examples/incomplete-evaluation.txt) - example of a evaluator assessment of a complete conversation from the previous example.
 - [examples/one-step-conversation.txt](examples/one-step-conversation.txt) - example of a conversation completed in one step where code assistant model produced correct result straight away
 - [examples/wrong-language.txt](examples/one-step-conversation.txt) - example where code assistant start answering a question in wrong programming language (because language was nt mentioned in the original question) but evaluator noticed that (because evaluator is prompted that conversations should be about Python)
 
