@@ -34,8 +34,6 @@ class OpenAI_Base(LLM):
             else:
                 answer = "I cannot answer to this prompt."
 
-        answer = response.choices[0].message.content
-
         return answer
 
     def start_conversation(self, prompt: str) -> str:
