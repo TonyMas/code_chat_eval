@@ -1,0 +1,48 @@
+so i have this method here inside a class Foo
+Position = namedTuple('Position', ['row', 'column'])
+
+class Foo:
+    ...
+      def hasObject(self, position:Position)->bool:
+
+i'm trying to write a unit test for this method and so far it looks like this:
+def test_hasObject_true(self):
+  state = Foo()
+  self.assertTrue(state.hasObject(whatDoIPutHereIfIWantToReferToThePosition) , "hasObject is unable to return a true")
+
+i don't know what to put in the parameters of that last line to refer to the position in hasObject since it's not a part of the class Foo. my impression is that since the original file already contains from collections import namedtuple we wouldn't have to rewrite this same line of code for the unit test since the unit test imports the original file anyways
+sorry im new to python can someone help
+
+-------------------
+
+You're correct that since the original file already contains `from collections import namedtuple` and defines `Position` as a `namedtuple`, you can reuse it in your unit test.
+
+However, the issue is that you're trying to pass an instance of `Position` to the `hasObject` method, but the method is expecting a `Position` object, not an instance of it.
+
+Here's how you can fix it:
+
+```python
+def test_hasObject_true(self):
+    state = Foo()
+    position = Position(row=1, column=1)  # Create a Position object
+    self.assertTrue(state.hasObject(position), "hasObject is unable to return a true")
+```
+
+In this code, `Position(row=1, column=1)` creates a new `Position` object with `row=1` and `column=1`. This object can then be passed to the `hasObject` method.
+
+Alternatively, you can also use the `namedtuple` directly in your test without importing it from the original file:
+
+```python
+from collections import namedtuple
+
+Position = namedtuple('Position', ['row', 'column'])
+
+def test_hasObject_true(self):
+    state = Foo()
+    position = Position(row=1, column=1)
+    self.assertTrue(state.hasObject(position), "hasObject is unable to return a true")
+```
+
+This way, you're not relying on the original file's imports, but you're still using the same `Position` class.
+
+-------------------

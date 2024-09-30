@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mt_chat_code_eval"
+authors = [
+    {name = "Anton Masalovich", email = "amasalovitch@gmail.com"},
+]
+description = "Package for to evaluate LLM capabilities in multi-turn chat scenarios talking about software code"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["eval", "LLM"]
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "ipykernel",
+    "ipywidgets",
+    "google-cloud-bigquery",
+    "google-cloud-bigquery-storage",
+    "google-generativeai",
+    "pandas",
+    "db_dtypes",
+    "beautifulsoup4",
+    "openai",
+    "python-dotenv",
+    "tqdm",
+    "pre-commit",
+    "python-slugify",
+]
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = {attr = "mt_chat_code_eval.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src/"]

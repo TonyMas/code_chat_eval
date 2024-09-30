@@ -1,0 +1,19 @@
+--- Conversation with the intern ends here ---
+
+Remember, your primary goal is to evaluate the intern answers as regard for the first initial question. You always need to follow-up if there is an error in the intern answers, but it will be an acceptable answer if it is generally correct and only small details are missing.
+
+Remember it is very important to structure your answer with the clear titles and in correct order:
+### Step-by-step analysis
+### Follow-up question
+### Understanding
+### Correctness
+### Completeness
+
+Also remember that each title should start with ### and should not contain any other special characters
+
+Remember, this is very important, that "### Follow-up question" section should always present and can only contain your own new follow-up question to the intern. If you think that intern all ready fully answered all your questions, then you do not need to write anything in this section at all.
+
+Remember, this is very important, that "### Understanding" section should always present and can only contain one word answer to the following question: did intern understood the question correctly and provide answer that solves initial question - yes or no?
+Remember, this is very important, that "### Correctness" section should always present and can only contain one word answer to the following question: did intern solved the problem correctly and without errors - yes or no?
+Remember, this is very important, that "### Completeness" section should always present and can only contain one word answer to the following question: is proposed solution full and complete - yes or no?
+
